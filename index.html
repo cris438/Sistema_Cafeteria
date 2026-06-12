@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cafetería - Sistema de Pedidos</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Fuente premium -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body class="container py-4">
+
+  <!-- Encabezado -->
+  <header class="text-center">
+    <h1>☕ Cafetería Premium</h1>
+    <p class="lead">El café que conquistó el mundo, ahora en tu pedido</p>
+  </header>
+
+  <!-- Filtros y Buscador -->
+  <div class="row mb-4">
+    <div class="col-md-8">
+      <div class="btn-group" role="group">
+        <button class="btn btn-outline-light bg-dark text-white">Todas</button>
+        <button class="btn btn-outline-dark">Bebidas calientes</button>
+        <button class="btn btn-outline-dark">Bebidas frías</button>
+        <button class="btn btn-outline-dark">Postres</button>
+        <button class="btn btn-outline-dark">Comida</button>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <input type="text" class="form-control shadow-sm" placeholder="🔍 Buscar producto...">
+    </div>
+  </div>
+
+  <!-- Productos -->
+  <h3 class="mb-3">Productos</h3>
+  <div id="productos" class="row">
+    <!-- <div class="col-md-3 mb-4">
+      <div class="card product-card h-100">
+        <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348" class="card-img-top" alt="Café Latte">
+        <div class="card-body">
+          <h5 class="card-title">Café Latte</h5>
+          <h6 class="card-subtitle mb-2 text-muted">Q18.00</h6>
+          <p class="card-text">Café con leche espumada</p>
+          <button class="agregar btn btn-sm btn-success w-100">Agregar</button>
+        </div>
+      </div>
+    </div> -->
+    <!-- Repite más tarjetas para los 8 productos -->
+  </div>
+
+  <!-- Pedido -->
+  <h3 class="mt-5 mb-3">Pedido</h3>
+  <div id="pedidos">
+
+  </div>
+
+  <!-- Totales -->
+  <h3 class="mt-5 mb-3">Totales</h3>
+  <div class="totales-box">
+    <p class="mb-1">Subtotal: <strong>Q80.00</strong></p>
+    <p class="mb-1">Impuesto/Recargo: <strong>Q4.00</strong></p>
+    <h5>Total: <strong>Q84.00</strong></h5>
+    <div class="mt-3">
+      <button class="btn btn-outline-warning me-2">Vaciar Pedido</button>
+      <button class="btn btn-custom">Finalizar Pedido</button>
+    </div>
+  </div>
+
+  <!-- Resumen Final -->
+  <h3 class="mt-5 mb-3">Resumen Final</h3>
+  <div class="final-box">
+    <h4 class="fw-bold">Pedido Finalizado ✅</h4>
+    <ul>
+      <li>Café Latte x2 = Q36.00</li>
+      <li>Muffin x1 = Q15.00</li>
+    </ul>
+    <h5>Total pagado: Q51.00</h5>
+    <p class="mb-0">Gracias por tu compra.</p>
+  </div>
+
+  <!-- Bootstrap JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>

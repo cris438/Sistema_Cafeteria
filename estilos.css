@@ -1,0 +1,74 @@
+ body {
+     background: #f8f9fa;
+     font-family: 'Poppins', sans-serif;
+     color: #2c2c2c;
+ }
+
+ header {
+     background: url('https://images.unsplash.com/photo-1509042239860-f550ce710b93') center/cover no-repeat;
+     color: white;
+     padding: 3rem;
+     border-radius: 16px;
+     margin-bottom: 2rem;
+     text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+ }
+
+ header h1 {
+     font-weight: 700;
+     font-size: 2.5rem;
+ }
+
+ .product-card {
+     border: none;
+     border-radius: 16px;
+     overflow: hidden;
+     transition: all 0.3s ease;
+     background: white;
+     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+ }
+
+ .product-card:hover {
+     transform: translateY(-8px);
+     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+ }
+
+ .pedido-item {
+     background: #ffffff;
+     border-radius: 12px;
+     margin-bottom: 12px;
+     padding: 15px;
+     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+ }
+
+ .totales-box {
+     background: linear-gradient(135deg, #fff3cd, #ffeeba);
+     padding: 25px;
+     border-radius: 16px;
+     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+ }
+
+ .final-box {
+     background: linear-gradient(135deg, #d4edda, #c3e6cb);
+     padding: 30px;
+     border-radius: 16px;
+     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+ }
+
+ .btn-custom {
+     background: linear-gradient(135deg, #6f42c1, #d63384);
+     color: white;
+     border: none;
+     border-radius: 10px;
+     transition: all 0.3s ease;
+     font-weight: 600;
+ }
+
+ .btn-custom:hover {
+     background: linear-gradient(135deg, #5a2d91, #b42a6f);
+     transform: scale(1.05);
+ }
+
+ h3 {
+     font-weight: 600;
+     color: #6f42c1;
+ }
