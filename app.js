@@ -39,8 +39,6 @@ class Pedido {
     #nombre
     #cantidad = 0
     #precioUnitario
-    #subTotal
-    #total
     constructor(nombre, precioUnitario) {
         this.nombre = nombre
         this.cantidad = this.cantidad
@@ -57,9 +55,7 @@ class Pedido {
     get precioUnitario() {
         return this.#precioUnitario
     }
-    get subTotal() {
-        return this.#subTotal
-    }
+ 
     set nombre(value) {
         this.#nombre = value
     }
@@ -68,9 +64,6 @@ class Pedido {
     }
     set precioUnitario(value) {
         this.#precioUnitario = value
-    }
-    set subTotal(value) {
-        this.#subTotal = value * this.cantidad
     }
     restarCantidad() {
         this.#cantidad--
@@ -99,7 +92,8 @@ let todosPedidos = []
 let i = 0;
 
 const pintarProductos = () => {
-    let contenedor = todosProductos.forEach(producto => {
+    productos.innerHTML=''
+    let contenedor = todosProductos.forEach((producto,index) => {
         let html = `
                     <div class="col-md-3 mb-4">
                         <div class="card product-card h-100">
@@ -108,37 +102,38 @@ const pintarProductos = () => {
                                     <h5 class="card-title">${producto.nombre}</h5>
                                     <h6 class="card-subtitle mb-2 text-muted">Q${producto.precio}.00</h6>
                                     <p class="card-text">${producto.descripcion}</p>
-                                    <button id="${i}" class="agregar btn btn-sm btn-success w-100">Agregar</button>
+                                    <button id="${index}" class="agregar btn btn-sm btn-success w-100">Agregar</button>
                                 </div>
                         </div>
                     </div>
                 `
-        i++
         productos.innerHTML += html
 
     })
 }
 pintarProductos()
-let ids = 0
+
+
+//pendiente el id de span
 const pintarPedidos = (nuevosPedidos) => {
     pedidos.innerHTML = ''
-    nuevosPedidos.forEach(nuevoPedido => {
+    nuevosPedidos.forEach((nuevoPedido,index) => {
         let html = ` 
     <div class="pedido-item d-flex justify-content-between align-items-center">
       <div>
         <strong>${nuevoPedido.nombre}</strong><br>
-        <span id="${ids}" class="cantidad">Cantidad: ${nuevoPedido.cantidad}</span> | <span class="precioUnitario">Precio unitario: Q${nuevoPedido.precioUnitario}</span>
+        <span class="cantidad">Cantidad: ${nuevoPedido.cantidad}</span> | <span class="precioUnitario">Precio unitario: Q${nuevoPedido.precioUnitario}</span>
       </div>
       <div>
-        <button id="${event.target.id}" class="btn btn-sm btn-outline-secondary restar">-</button>
-        <button id="${event.target.id}" class="btn btn-sm btn-outline-secondary sumar">+</button>
-        <button id="${event.target.id}" class="btn btn-sm btn-outline-danger eliminar">Eliminar</button>
+        <button id="${index}" class="btn btn-sm btn-outline-secondary restar">-</button>
+        <button id="${index}" class="btn btn-sm btn-outline-secondary sumar">+</button>
+        <button id="${index}" class="btn btn-sm btn-outline-danger eliminar">Eliminar</button>
       </div>
     </div>
     `
+        console.log(html)
         pedidos.innerHTML += html
     })
-    ids++
 }
 
 
@@ -162,32 +157,13 @@ productos.addEventListener('click', (event) => {
 
 pedidos.addEventListener('click', (event) => {
     if (event.target.classList.contains('sumar')) {
-        let nuevoPedido = new Pedido(todosProductos[event.target.id].nombre, todosProductos[event.target.id].precio)
-        console.log(event.target.id)
-        if (todosPedidos.find(pedido => pedido.nombre == nuevoPedido.nombre)) {
-            let prueba = todosPedidos.filter(pedido => pedido.nombre == nuevoPedido.nombre)
-            prueba[0].aumentarCantidad()
-            console.log(prueba)
-            pintarPedidos(todosPedidos)
-        }
+        todosPedidos[event.target.id].aumentarCantidad()
+        pintarPedidos(todosPedidos)
     } else if (event.target.classList.contains('restar')) {
-        let nuevoPedido = new Pedido(todosProductos[event.target.id].nombre, todosProductos[event.target.id].precio)
-        if (todosPedidos.find(pedido => pedido.nombre == nuevoPedido.nombre)) {
-            let prueba = todosPedidos.filter(pedido => pedido.nombre == nuevoPedido.nombre)
-            prueba[0].restarCantidad()
-            console.log(prueba)
-            pintarPedidos(todosPedidos)
-        }
+        todosPedidos[event.target.id].restarCantidad()
+        pintarPedidos(todosPedidos)
     } else if (event.target.classList.contains('eliminar')) {
-        let nuevoPedido = new Pedido(todosProductos[event.target.id].nombre, todosProductos[event.target.id].precio)
-        if (todosPedidos.find(pedido => pedido.nombre == nuevoPedido.nombre)) {
-            let prueba = todosPedidos.filter(pedido => pedido.nombre == nuevoPedido.nombre)
-            prueba[0].aumentarCantidad()
-            console.log(prueba)
-            pintarPedidos(todosPedidos)
-        } else {
-            todosPedidos.push(nuevoPedido)
-            pintarPedidos(todosPedidos)
-        }
+        todosPedidos.splice(event.target.id,1)
+        pintarPedidos(todosPedidos)
     }
 })

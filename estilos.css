@@ -1,74 +1,184 @@
- body {
-     background: #f8f9fa;
-     font-family: 'Poppins', sans-serif;
-     color: #2c2c2c;
- }
+body {
+    background: linear-gradient(180deg, #f8f9ff 0%, #eef2ff 50%, #fefefe 100%);
+    font-family: 'Poppins', sans-serif;
+    color: #2f2f36;
+    min-height: 100vh;
+}
 
- header {
-     background: url('https://images.unsplash.com/photo-1509042239860-f550ce710b93') center/cover no-repeat;
-     color: white;
-     padding: 3rem;
-     border-radius: 16px;
-     margin-bottom: 2rem;
-     text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
- }
+.page {
+    background: transparent;
+}
 
- header h1 {
-     font-weight: 700;
-     font-size: 2.5rem;
- }
+.banner {
+    background: linear-gradient(135deg, rgba(82, 63, 155, 0.9), rgba(245, 101, 90, 0.88)), url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1400&q=80') center/cover no-repeat;
+    border-radius: 24px;
+    color: white;
+    padding: 3rem 1.5rem;
+    box-shadow: 0 24px 64px rgba(28, 38, 63, 0.18);
+    text-shadow: 0 6px 18px rgba(0, 0, 0, 0.24);
+}
 
- .product-card {
-     border: none;
-     border-radius: 16px;
-     overflow: hidden;
-     transition: all 0.3s ease;
-     background: white;
-     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
- }
+.banner h1 {
+    font-size: clamp(2.4rem, 4vw, 3.4rem);
+    font-weight: 800;
+    letter-spacing: 0.02em;
+}
 
- .product-card:hover {
-     transform: translateY(-8px);
-     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
- }
+.banner .lead {
+    font-size: 1.05rem;
+    margin-top: 0.75rem;
+    opacity: 0.95;
+}
 
- .pedido-item {
-     background: #ffffff;
-     border-radius: 12px;
-     margin-bottom: 12px;
-     padding: 15px;
-     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
- }
+.main-grid {
+    display: grid;
+    gap: 1.75rem;
+    grid-template-columns: 1.8fr 1fr;
+}
 
- .totales-box {
-     background: linear-gradient(135deg, #fff3cd, #ffeeba);
-     padding: 25px;
-     border-radius: 16px;
-     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
- }
+.panel {
+    background: rgba(255, 255, 255, 0.92);
+    border-radius: 24px;
+    padding: 1.75rem;
+    box-shadow: 0 18px 40px rgba(88, 105, 143, 0.1);
+}
 
- .final-box {
-     background: linear-gradient(135deg, #d4edda, #c3e6cb);
-     padding: 30px;
-     border-radius: 16px;
-     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
- }
+.panel--order {
+    min-height: 560px;
+}
 
- .btn-custom {
-     background: linear-gradient(135deg, #6f42c1, #d63384);
-     color: white;
-     border: none;
-     border-radius: 10px;
-     transition: all 0.3s ease;
-     font-weight: 600;
- }
+.panel-header {
+    margin-bottom: 1.5rem;
+}
 
- .btn-custom:hover {
-     background: linear-gradient(135deg, #5a2d91, #b42a6f);
-     transform: scale(1.05);
- }
+.section-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.35rem;
+}
 
- h3 {
-     font-weight: 600;
-     color: #6f42c1;
- }
+.section-subtitle {
+    margin: 0;
+    color: #6c7582;
+}
+
+.btn-outline-dark.active,
+.btn-outline-dark:hover {
+    background: #462066;
+    color: white;
+    border-color: #462066;
+}
+
+.input-group .form-control {
+    border-radius: 16px;
+    border: 1px solid #d3d8e3;
+    box-shadow: 0 10px 30px rgba(70, 78, 134, 0.08);
+}
+
+.input-group-text {
+    background: white;
+    border: 1px solid #d3d8e3;
+    border-right: 0;
+    border-radius: 16px 0 0 16px;
+}
+
+.product-card {
+    border: none;
+    border-radius: 24px;
+    overflow: hidden;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    background: white;
+    box-shadow: 0 16px 40px rgba(93, 103, 133, 0.12);
+}
+
+.product-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 24px 56px rgba(93, 103, 133, 0.18);
+}
+
+.product-card img {
+    height: 220px;
+    object-fit: cover;
+}
+
+.product-card .card-body {
+    padding: 1.4rem;
+}
+
+.product-card .card-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+.product-card .card-text {
+    color: #6d7280;
+    min-height: 3rem;
+}
+
+.pedido-item {
+    background: #ffffff;
+    border-radius: 18px;
+    margin-bottom: 1rem;
+    padding: 1.25rem;
+    box-shadow: 0 12px 28px rgba(83, 98, 132, 0.08);
+}
+
+.pedido-item strong {
+    display: block;
+    font-size: 1rem;
+    margin-bottom: 0.35rem;
+}
+
+.pedido-item .cantidad,
+.pedido-item .precioUnitario {
+    color: #5d6472;
+    font-size: 0.95rem;
+}
+
+.totales-box {
+    background: #faf8ff;
+}
+
+.totales-box p,
+.totales-box h4 {
+    margin-bottom: 1rem;
+}
+
+.btn-custom {
+    background: linear-gradient(135deg, #4527a0 0%, #d63384 100%);
+    color: white;
+    border: none;
+    border-radius: 14px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    font-weight: 700;
+}
+
+.btn-custom:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 16px 30px rgba(149, 61, 136, 0.2);
+}
+
+.final-box {
+    border: 1px solid rgba(25, 58, 116, 0.08);
+    background: #ffffff;
+}
+
+.final-box h3 {
+    color: #342d73;
+}
+
+@media (max-width: 991px) {
+    .main-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 575px) {
+    .banner {
+        padding: 2rem 1rem;
+    }
+
+    .input-group-text {
+        border-radius: 16px 0 0 16px;
+    }
+}
