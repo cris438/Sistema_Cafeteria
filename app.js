@@ -11,7 +11,7 @@ class Producto {
         this.descripcion = descripcion
         this.#url = url
     }
-    get url(){
+    get url() {
         return this.#url
     }
     set nombre(value) {
@@ -78,6 +78,7 @@ class Pedido {
 
 }
 
+//Variables o constantes
 let pedidos = document.querySelector('#pedidos')
 let productos = document.querySelector('#productos')
 let subTotal = document.querySelector('#subtotal')
@@ -90,14 +91,14 @@ let totalFinal = document.querySelector('#totalFinal')
 let filtros = document.querySelector('#filtros')
 let inputBuscador = document.querySelector('#buscador')
 
-let producto1 = new Producto('Café Americano', 12, 'Bebida caliente', 'Cafe negro tradicional','./images/cafeAmericano.jpeg')
-let producto2 = new Producto('Café Latte', 18, 'Bebida caliente', 'Cafe con leche espumada','./images/cafeLatte.jpeg')
-let producto3 = new Producto('Frappe de Chocolate', 25, 'Bebida fria', 'Bebida fría con chocolate y crema','./images/frappeChocolate.jpeg')
-let producto4 = new Producto('Smoothie de Fresa', 22, 'Bebida fria', 'Batido natural de fresa','./images/smothiedeFresa.jpeg')
-let producto5 = new Producto('Muffin de Vainilla', 15, 'Postre', 'Pan dulce suave de vainilla','./images/muffinDeVainilla.jpeg')
-let producto6 = new Producto('Cheesecake', 28, 'Postre', 'Pastel frio de queso','./images/Chess.jpeg')
-let producto7 = new Producto('Sandwich de Pollo', 30, 'Comida', 'Sandwich con pollo y vegetales','./images/sandwich.jpeg')
-let producto8 = new Producto('Bagel con Queso', 20, 'Comida', 'Bagel tostado con queso crema','./images/bagel.jpeg')
+let producto1 = new Producto('Café Americano', 12, 'Bebida caliente', 'Cafe negro tradicional', './images/cafeAmericano.jpeg')
+let producto2 = new Producto('Café Latte', 18, 'Bebida caliente', 'Cafe con leche espumada', './images/cafeLatte.jpeg')
+let producto3 = new Producto('Frappe de Chocolate', 25, 'Bebida fria', 'Bebida fría con chocolate y crema', './images/frappeChocolate.jpeg')
+let producto4 = new Producto('Smoothie de Fresa', 22, 'Bebida fria', 'Batido natural de fresa', './images/smothiedeFresa.jpeg')
+let producto5 = new Producto('Muffin de Vainilla', 15, 'Postre', 'Pan dulce suave de vainilla', './images/muffinDeVainilla.jpeg')
+let producto6 = new Producto('Cheesecake', 28, 'Postre', 'Pastel frio de queso', './images/Chess.jpeg')
+let producto7 = new Producto('Sandwich de Pollo', 30, 'Comida', 'Sandwich con pollo y vegetales', './images/sandwich.jpeg')
+let producto8 = new Producto('Bagel con Queso', 20, 'Comida', 'Bagel tostado con queso crema', './images/bagel.jpeg')
 
 let todosProductos = [producto1, producto2, producto3, producto4, producto5, producto6, producto7, producto8]
 let todosPedidos = []
@@ -115,6 +116,7 @@ const pintarProductos = (todosProducto) => {
                                 <div class="card-body">
                                     <h5 class="card-title">${producto.nombre}</h5>
                                     <h6 class="card-subtitle mb-2 text-muted">Q${producto.precio}.00</h6>
+                                    <p class="card-text mb-0">${producto.categoria}</p>
                                     <p class="card-text">${producto.descripcion}</p>
                                     <button id="${todosProductos.indexOf(producto)}" class=" agregar btn btn-sm btn-success w-100">Agregar</button>
                                 </div>
@@ -173,11 +175,16 @@ const todosFiltros = (categoria, nombre) => {
     pintarProductos(filtrarProductos)
 }
 
-const quitarHovers = () => {
+const quitarHovers = (bandera) => {
     let botones = filtros.childNodes
     botones.forEach((boton, index) => {
         if (index % 2 != 0) {
             boton.classList.remove('active')
+        }
+        if (bandera) {
+            if (index == 1) {
+                boton.classList.add('active')
+            }
         }
     })
 }
@@ -245,7 +252,7 @@ vaciarPedido.addEventListener('click', (event) => {
     nombre = null
     inputBuscador.value = ''
     todosFiltros(categoria, nombre)
-    quitarHovers()
+    quitarHovers(true)
 })
 
 finalizarPedido.addEventListener('click', () => {
@@ -270,7 +277,7 @@ filtros.addEventListener('click', (event) => {
         categoria = 'Comida'
         todosFiltros(categoria, nombre)
     }
-    quitarHovers()
+    quitarHovers(false)
     event.target.classList.add('active')
 })
 
